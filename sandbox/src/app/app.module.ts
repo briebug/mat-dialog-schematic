@@ -2,25 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
-import { MatButtonModule, MatDialogModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ConfirmationComponent,
-    ConfirmationDialogComponent
-  ],
-  imports: [
-    BrowserModule,
-    MatButtonModule,
-    MatDialogModule,
-    BrowserAnimationsModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [ConfirmationDialogComponent]
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
