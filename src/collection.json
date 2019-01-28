@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "mat-dialog": {
+      "description": "Generates mat dialog components in an existing Angular CLI project",
+      "factory": "./mat-dialog/index",
+      "schema": "./mat-dialog/schema.json"
+    }
+  }
+}
