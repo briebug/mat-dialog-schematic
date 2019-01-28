@@ -22,7 +22,7 @@ npm install -g @briebug/mat-dialog-schematic
 Then in an Angular CLI project run
 
 ```shell
-ng g @briebug/mat-dialog-schematic
+ng g @briebug/mat-dialog-schematic:mat-dialog {name}
 ```
 
 ## Issues
