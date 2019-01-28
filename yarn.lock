@@ -21,6 +21,15 @@
     "@angular-devkit/core" "7.2.3"
     rxjs "6.3.3"
 
+"@angular/cdk@^7.2.2":
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-7.2.2.tgz#f80bb3e54fe7db2c6957570d2ae1b7a24c4b1f13"
+  integrity sha512-DG4Ip9COZuQngG31gNFrJRtVPYC8H938dCHuqVjHrLEKfdsKzvprI/y0W+tr/sUnIbIJWEPSvnzmS3XYOgmFyg==
+  dependencies:
+    tslib "^1.7.1"
+  optionalDependencies:
+    parse5 "^5.0.0"
+
 "@angular/material@^7.2.2":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@angular/material/-/material-7.2.2.tgz#1b426b64f2549d5dca8439b4649ea70fb9e980fd"
@@ -1599,6 +1608,11 @@ parse-json@^4.0.0:
   dependencies:
     error-ex "^1.3.1"
     json-parse-better-errors "^1.0.1"
+
+parse5@^5.0.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/parse5/-/parse5-5.1.0.tgz#c59341c9723f414c452975564c7c00a68d58acd2"
+  integrity sha512-fxNG2sQjHvlVAYmzBZS9YlDp6PTSSDwa98vkD4QgVDDCAo84z5X1t5XyJQ62ImdLXx5NdIIfihey6xpum9/gRQ==
 
 pascalcase@^0.1.1:
   version "0.1.1"
