@@ -1,6 +1,6 @@
 {
   "name": "@briebug/mat-dialog-schematic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A schematic for generating mat dialog components",
   "repository": "briebug/mat-dialog-schematic",
   "bugs": "https://github.com/briebug/mat-dialog-schematic/issues",
@@ -31,9 +31,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@angular/cdk": "^7.2.2",
     "@angular-devkit/core": "^7.2.3",
     "@angular-devkit/schematics": "^7.2.3",
+    "@angular/cdk": "^7.2.2",
     "@angular/material": "^7.2.2",
     "@schematics/angular": "^7.2.3",
     "rxjs": "^6.3.3"
