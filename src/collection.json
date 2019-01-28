@@ -5,6 +5,16 @@
       "description": "Generates mat dialog components in an existing Angular CLI project",
       "factory": "./mat-dialog/index",
       "schema": "./mat-dialog/schema.json"
+    },
+    "ng-add": {
+      "description": "Generates mat dialog components in an existing Angular CLI project",
+      "factory": "./mat-dialog/index",
+      "schema": "./mat-dialog/schema.json"
+    },
+    "add": {
+      "description": "Generates mat dialog components in an existing Angular CLI project",
+      "factory": "./mat-dialog/index",
+      "schema": "./mat-dialog/schema.json"
     }
   }
 }

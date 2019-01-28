@@ -1,36 +1,37 @@
-import { strings } from "@angular-devkit/core";
+import { strings } from '@angular-devkit/core';
 import {
+  Rule,
   apply,
-  url,
-  noop,
-  filter,
-  template,
-  move,
-  chain,
   branchAndMerge,
+  chain,
   externalSchematic,
-  mergeWith
-} from "@angular-devkit/schematics";
-import { Tree } from "@angular-devkit/schematics/src/tree/interface";
-import { findModuleFromOptions } from "@schematics/angular/utility/find-module";
-import { applyLintFix } from "@schematics/angular/utility/lint-fix";
-import { parseName } from "@schematics/angular/utility/parse-name";
+  filter,
+  mergeWith,
+  move,
+  noop,
+  template,
+  url
+} from '@angular-devkit/schematics';
+import { Tree } from '@angular-devkit/schematics/src/tree/interface';
+import { findModuleFromOptions } from '@schematics/angular/utility/find-module';
+import { applyLintFix } from '@schematics/angular/utility/lint-fix';
+import { parseName } from '@schematics/angular/utility/parse-name';
 import {
   buildDefaultPath,
   getProject
-} from "@schematics/angular/utility/project";
+} from '@schematics/angular/utility/project';
 
-import { Schema } from "./schema";
-import { NodeDependencyType, pkgJson } from "../utility/dependencies";
-import { findPropertyInAstObject } from "../utility/json-utils";
+import { NodeDependencyType, pkgJson } from '../utility/dependencies';
+import { findPropertyInAstObject } from '../utility/json-utils';
 import {
-  buildSelector,
-  parseJsonAtPath,
   addDeclarationToNgModule,
-  addImportToNgModule
-} from "../utility/util";
+  addImportToNgModule,
+  buildSelector,
+  parseJsonAtPath
+} from '../utility/util';
+import { Schema } from './schema';
 
-export default function(options: Schema) {
+export default function(options: Schema): Rule {
   return (tree: Tree) => {
     const project = getProject(tree, options.project);
 
@@ -47,15 +48,15 @@ export default function(options: Schema) {
     options.selector =
       options.selector || buildSelector(options, project.prefix);
 
-    const templateSource = apply(url("./files"), [
-      options.spec ? noop() : filter(path => !path.endsWith(".spec.ts")),
+    const templateSource = apply(url('./files'), [
+      options.spec ? noop() : filter(path => !path.endsWith('.spec.ts')),
       options.inlineStyle
-        ? filter(path => !path.endsWith(".__styleext__"))
+        ? filter(path => !path.endsWith('.__styleext__'))
         : noop(),
-      options.inlineTemplate ? filter(path => !path.endsWith(".html")) : noop(),
+      options.inlineTemplate ? filter(path => !path.endsWith('.html')) : noop(),
       template({
         ...strings,
-        "if-flat": (s: string) => (options.flat ? "" : s),
+        'if-flat': (s: string) => (options.flat ? '' : s),
         ...options
       }),
       move(parsedPath.path)
@@ -68,24 +69,24 @@ export default function(options: Schema) {
     );
     let depNode;
 
-    if (depsNode && depsNode.kind === "object") {
-      depNode = findPropertyInAstObject(depsNode, "@angular/material");
+    if (depsNode && depsNode.kind === 'object') {
+      depNode = findPropertyInAstObject(depsNode, '@angular/material');
     }
 
     return chain([
       branchAndMerge(
         chain([
           !depNode
-            ? externalSchematic("@angular/material", "ng-add", {})
+            ? externalSchematic('@angular/material', 'ng-add', {})
             : noop(),
           addDeclarationToNgModule(options, options.name),
           addDeclarationToNgModule(options, options.name2, true),
-          addImportToNgModule(options, "MatButtonModule", "@angular/material"),
-          addImportToNgModule(options, "MatDialogModule", "@angular/material"),
+          addImportToNgModule(options, 'MatButtonModule', '@angular/material'),
+          addImportToNgModule(options, 'MatDialogModule', '@angular/material'),
           addImportToNgModule(
             options,
-            "BrowserAnimationsModule",
-            "@angular/platform-browser/animations"
+            'BrowserAnimationsModule',
+            '@angular/platform-browser/animations'
           ),
           mergeWith(templateSource)
         ])
