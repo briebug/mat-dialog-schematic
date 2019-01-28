@@ -1,26 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AsdfComponent } from './asdf/asdf.component';
-import { AsdfDialogComponent } from './asdf-dialog/asdf-dialog.component';
-import { MatButtonModule, MatDialogModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AsdfComponent,
-    AsdfDialogComponent
-  ],
-  imports: [
-    BrowserModule,
-    MatButtonModule,
-    MatDialogModule,
-    BrowserAnimationsModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent],
-  entryComponents: [AsdfDialogComponent]
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
